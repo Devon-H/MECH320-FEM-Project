@@ -94,10 +94,9 @@ pdeplot(model,"XYData",sol.Displacement.x,"Deformation",sol.Displacement,"Deform
 axis equal                                     % Set equal scales for x and y axes
 title('Plate Deformation');                    % Plot title
 
-%% 5: Calculate stress concentrantion factor
+%% 5: Calculate stress concentration factor
 p = [-100,0];                         % Coordinates of point far away from the hole
 snom = interpolateStress(sol,p').xx; % Nominal stress x obtained at point far away from hole
 smax = max(sol.Stress.sxx);        % Maximum normal stress x in the plate
-%k = 1+2*(half_crack_height/half_crack_width);     % Stress concentration factor for ellipse
-k = 1+2*(1);
+k = 1+2*(half_crack_height/half_crack_width);     % Stress concentration factor for ellipse
 fprintf("k = %d\n",k);               % Print k to the console
